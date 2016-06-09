@@ -1,0 +1,49 @@
+@(products: List[Product])
+
+@main("Products catalogue") {
+	<h2>All products</h2>
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+	<script>
+	function del(urlToDelete) {
+		$.ajax({
+			url: urlToDelete,
+			type: 'DELETE',
+			success: function(results) {
+				location.reload();
+			}
+		})
+	}	
+	</script>
+	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>EAN</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@for(product <- products) {
+		<tr>
+			<td><a href="@routes.ProductsController.details(product.ean)">@product.ean</a></td>
+			<td><a href="@routes.ProductsController.details(product.ean)">@product.name</a></td>
+			<td><a href="@routes.ProductsController.details(product.ean)">@product.description</a></td>
+			<td>
+				<a href="@routes.ProductsController.details(product.ean)">
+					<i class="icon icon-pencil">Details</i>
+				</a>
+				<a onclick="del('@routes.ProductsController.delete(product.ean)')">
+					<i class="icon icon-trash">Delete</i>
+				</a>
+			</td>
+		</tr>
+		}
+		</tbody>
+	</table>
+	
+	<a href="@routes.ProductsController.newProduct()" class="btn"><i class="icon-plus"></i>New product</a>
+}

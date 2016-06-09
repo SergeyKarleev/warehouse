@@ -1,0 +1,11 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET      /             				controllers.ProductsController.index()
+GET     /products                   controllers.ProductsController.list(page: Integer ?= 1)
+POST    /products                   controllers.ProductsController.save()
+GET     /products/new               controllers.ProductsController.newProduct()
+GET     /products/:ean              controllers.ProductsController.details(ean: String)
+
+DELETE	/products/:ean				controllers.ProductsController.delete(ean: String)

@@ -44,10 +44,9 @@ public class ProductsController extends Controller{
     }
     
     //действие показывает детализацию для выбранного продукта
-    public Result details(String ean){
-        final Product product = Product.findByEan(ean);
+    public Result details(Product product){
         if (product == null){
-        	return notFound(String.format("Product %s does not exist",	ean));
+        	return notFound(String.format("Product %s does not exist",	product));
         }
         
         Form<Product>filledForm = formFactory.form(Product.class).fill(product);
@@ -65,7 +64,9 @@ public class ProductsController extends Controller{
     	Product product = boundForm.get();
     	List<Tag> tags = new ArrayList<>();
     	for(Tag tag : product.tags){
-    		tags.add(Tag.findById(tag.id));
+    		if (tag.id != null){
+    			tags.add(Tag.findById(tag.id));
+    		}
     	}
     	
     	product.tags = tags;

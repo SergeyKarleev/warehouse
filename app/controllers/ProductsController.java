@@ -9,6 +9,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
@@ -17,6 +18,7 @@ import models.Tag;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
+import play.mvc.Http.RequestBody;
 import play.mvc.Result;
 import play.mvc.With;
 
@@ -60,7 +62,7 @@ public class ProductsController extends Controller{
     		flash("error", "Please correct the form below");
     		return badRequest(views.html.details.render(boundForm));
     	}
-    	
+    	    	
     	Product product = boundForm.get();
     	List<Tag> tags = new ArrayList<>();
     	for(Tag tag : product.tags){

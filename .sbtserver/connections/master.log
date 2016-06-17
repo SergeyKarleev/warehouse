@@ -1,0 +1,22 @@
+New log file opened at Thu Jun 09 22:01:33 MSK 2016 by 3716@r2d2-pc
+Taking next connection to: 50439
+New client attempting to connect on port: 50440-50439
+  Address = /127.0.0.1:50439
+This client on port 50440 has uuid b81278e3-41ad-4393-8c38-7bef2b95abd3 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-b81278e3-41ad-4393-8c38-7bef2b95abd3
+Taking next connection to: 50439
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50439
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50439
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50439
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 3716@r2d2-pc logs at Thu Jun 09 22:13:34 MSK 2016, goodbye.

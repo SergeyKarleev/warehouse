@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Entity;
+
+import com.avaje.ebean.Model;
+
 import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
 import play.data.validation.Constraints.ValidateWith;
 import play.libs.F;
 import play.mvc.PathBindable;
 
-public class Product implements PathBindable<Product> {
+@Entity
+public class Product extends Model implements PathBindable<Product> {
 
 
 	@ValidateWith(value=EanValidator.class, message="Must be 5 numbers")
